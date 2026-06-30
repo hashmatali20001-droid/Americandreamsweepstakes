@@ -23,7 +23,14 @@
 		nav{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
 		.btn{background:linear-gradient(90deg,var(--accent),#328de7);color:#fff;border:none;padding:10px 16px;border-radius:999px;cursor:pointer;box-shadow:0 8px 18px rgba(11,78,135,0.2);transition:transform .1s ease, box-shadow .1s ease, background .1s ease}
 		.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(229,57,53,0.2);background:linear-gradient(90deg,#1e88e5,var(--accent-2))}
+		.btn-danger{background:linear-gradient(90deg,#d62828,#b71c1c);box-shadow:0 8px 18px rgba(183,28,28,0.24)}
+		.btn-danger:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(183,28,28,0.3);background:linear-gradient(90deg,#b71c1c,#8f0000)}
 		.promo{margin-top:20px;padding:16px;border-radius:10px;background:linear-gradient(90deg,#fff4f4,#fff9e8);border:1px solid rgba(229,57,53,0.25)}
+		.claim-card{margin-top:16px;padding:18px;border:1px solid #f0cfcf;border-radius:12px;background:linear-gradient(145deg,#fff9f9,#fff3f3)}
+		.claim-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:12px}
+		.claim-option{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #f3d0d0;border-radius:8px;background:#fff}
+		.claim-screen{margin-top:14px;padding:16px;border:1px solid #ecd0d0;border-radius:10px;background:#fffdfd}
+		.claim-screen p{line-height:1.7;color:#4a5568}
 		.overlay{position:fixed;inset:0;background:linear-gradient(rgba(3,10,20,0.65),rgba(3,10,20,0.65)),url('vidu-image-33.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;z-index:999}
 		.panel{background:linear-gradient(145deg,rgba(248, 248, 252, 0.98),rgba(241, 241, 243, 0.96));padding:28px;border-radius:12px;max-width:420px;width:94%;box-shadow:0 12px 40px rgba(2,6,23,0.4);text-align:center;backdrop-filter:blur(6px);border:1px solid rgba(11,94,215,0.16)}
 		.form-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:12px}
@@ -235,10 +242,20 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 					<tr><td>Michael A. Brooks</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
 					<tr><td>Jasmine R. Lewis</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
 					<tr><td>Daniel T. Rivers</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
+					<tr><td>Evelyn Shimada</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
+					<tr><td>Ernestine Barnett</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
+					<tr><td>Sherry Hall</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
+					<tr><td>Charmaine Baker</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
+					<tr><td>William Averhart</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
+					<tr><td>Judy Werner</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
 					<tr><td>Patricia W. Gomez</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
+					<tr><td>Kitty Moliga</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
+					<tr><td>Pupualii Moliga</td><td>Unclaim</td><td><a href="#claim" onclick="showSection('claim')">Claim Weekly Payment</a></td></tr>
 				</tbody>
 				</table>
 			</div>
+
+			<a class="btn btn-danger" href="claim-award.html" style="margin-top:14px;display:inline-block;text-decoration:none;">If you are a winner, please file a claim here</a>
 		</section>
 
 		<section id="support" style="display:none">
@@ -375,6 +392,42 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 			}
 		});
 
+		const openWinnerClaimBtn = document.getElementById('openWinnerClaim');
+		const winnerClaimPanel = document.getElementById('winnerClaimPanel');
+		const viewTermsBtn = document.getElementById('viewTermsBtn');
+		const winnerTermsScreen = document.getElementById('winnerTermsScreen');
+		const continueClaimBtn = document.getElementById('continueClaimBtn');
+		const winnerClaimForm = document.getElementById('winnerClaimForm');
+		const winnerClaimMessage = document.getElementById('winnerClaimMessage');
+		const confirmTerms = document.getElementById('confirmTerms');
+
+		if (openWinnerClaimBtn) {
+			openWinnerClaimBtn.addEventListener('click', () => {
+				winnerClaimPanel.style.display = 'block';
+				winnerTermsScreen.style.display = 'none';
+				winnerClaimForm.style.display = 'none';
+				winnerClaimMessage.style.display = 'none';
+			});
+		}
+
+		if (viewTermsBtn) {
+			viewTermsBtn.addEventListener('click', () => {
+				winnerTermsScreen.style.display = 'block';
+			});
+		}
+
+		if (continueClaimBtn && confirmTerms && winnerClaimForm) {
+			continueClaimBtn.addEventListener('click', () => {
+				if (confirmTerms.checked) {
+					winnerClaimForm.style.display = 'block';
+				} else {
+					winnerClaimMessage.textContent = 'Please confirm the terms before continuing.';
+					winnerClaimMessage.style.color = '#b00020';
+					winnerClaimMessage.style.display = 'block';
+				}
+			});
+		}
+
 		const inquiryForm = document.getElementById('customerInquiryForm');
 		const inquiryMessage = document.getElementById('inquiryMessage');
 		const claimForm = document.getElementById('claimForm');
@@ -410,6 +463,7 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 
 		sendFormToEmail(inquiryForm, inquiryMessage, 'Thank you! Your request has been received and a representative will follow up soon.');
 		sendFormToEmail(claimForm, claimMessage, 'Thank you! Your claim form has been received and a representative will contact you soon.');
+		sendFormToEmail(winnerClaimForm, winnerClaimMessage, 'Thank you! Your claim request has been received and a representative will contact you soon.');
 
 		// Focus the input on load
 		window.addEventListener('load', ()=>{
