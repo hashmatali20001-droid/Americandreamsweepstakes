@@ -15,8 +15,8 @@
 			--text:#13233d;
 			--muted:#5a6b7f;
 		}
-		html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#f6fbff 0%,#eef6ff 45%,#fff4f4 100%);color:var(--text)}
-		.container{max-width:980px;margin:40px auto;padding:30px;background:linear-gradient(145deg,rgba(252, 250, 250, 0.98),rgba(245,250,255,0.96));border:1px solid rgba(11,94,215,0.14);border-radius:16px;box-shadow:0 16px 40px rgba(11,78,135,0.12)}
+		html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#1e3c72 0%,#2a5298 25%,#7f0020 50%,#c41e3a 75%,#e74c3c 100%);color:var(--text)}
+		.container{max-width:980px;margin:40px auto;padding:30px;background:linear-gradient(145deg,rgba(31, 60, 114, 0.95),rgba(42, 82, 152, 0.93));border:1px solid rgba(196,30,58,0.3);border-radius:16px;box-shadow:0 16px 40px rgba(196,30,58,0.25)}
 		header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;border-radius:12px;background:#d62828;border-bottom:2px solid rgba(229,57,53,0.15)}
 		header h1{margin:0;font-size:24px;color:#fff;letter-spacing:0.3px}
 		header h2{color:#ffe6e6}
@@ -25,38 +25,38 @@
 		.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(229,57,53,0.2);background:linear-gradient(90deg,#1e88e5,var(--accent-2))}
 		.btn-danger{background:linear-gradient(90deg,#d62828,#b71c1c);box-shadow:0 8px 18px rgba(183,28,28,0.24)}
 		.btn-danger:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(183,28,28,0.3);background:linear-gradient(90deg,#b71c1c,#8f0000)}
-		.promo{margin-top:20px;padding:16px;border-radius:10px;background:linear-gradient(90deg,#fff4f4,#fff9e8);border:1px solid rgba(229,57,53,0.25)}
-		.claim-card{margin-top:16px;padding:18px;border:1px solid #f0cfcf;border-radius:12px;background:linear-gradient(145deg,#fff9f9,#fff3f3)}
+		.promo{margin-top:20px;padding:16px;border-radius:10px;background:linear-gradient(90deg,#1e3c72,#c41e3a);border:1px solid rgba(196,30,58,0.5);color:#fff}
+		.claim-card{margin-top:16px;padding:18px;border:1px solid rgba(196,30,58,0.4);border-radius:12px;background:linear-gradient(145deg,#2a5298,#1e3c72);color:#fff}
 		.claim-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:12px}
-		.claim-option{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #f3d0d0;border-radius:8px;background:#fff}
-		.claim-screen{margin-top:14px;padding:16px;border:1px solid #ecd0d0;border-radius:10px;background:#fffdfd}
-		.claim-screen p{line-height:1.7;color:#4a5568}
+		.claim-option{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid rgba(196,30,58,0.4);border-radius:8px;background:linear-gradient(90deg,#1e3c72,#2a5298);color:#fff}
+		.claim-screen{margin-top:14px;padding:16px;border:1px solid rgba(196,30,58,0.4);border-radius:10px;background:linear-gradient(90deg,#1e3c72,#2a5298);color:#fff}
+		.claim-screen p{line-height:1.7;color:#fff}
 		.overlay{position:fixed;inset:0;background:linear-gradient(rgba(3,10,20,0.65),rgba(3,10,20,0.65)),url('vidu-image-33.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;z-index:999}
-		.panel{background:linear-gradient(145deg,rgba(248, 248, 252, 0.98),rgba(241, 241, 243, 0.96));padding:28px;border-radius:12px;max-width:420px;width:94%;box-shadow:0 12px 40px rgba(2,6,23,0.4);text-align:center;backdrop-filter:blur(6px);border:1px solid rgba(11,94,215,0.16)}
+		.panel{background:linear-gradient(145deg,rgba(31, 60, 114, 0.98),rgba(42, 82, 152, 0.96));padding:28px;border-radius:12px;max-width:420px;width:94%;box-shadow:0 12px 40px rgba(196,30,58,0.4);text-align:center;backdrop-filter:blur(6px);border:1px solid rgba(196,30,58,0.3);color:#fff}
 		.form-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:12px}
-		label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:#234}
-		input,textarea,select{padding:10px;border:1px solid #c8d8f0;border-radius:8px;font:inherit;background:#fbfdff}
+		label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:#fff}
+		input,textarea,select{padding:10px;border:1px solid rgba(196,30,58,0.4);border-radius:8px;font:inherit;background:linear-gradient(90deg,rgba(31,60,114,0.1),rgba(42,82,152,0.1))}
 		textarea{min-height:90px}
 		input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(229,57,53,0.14)}
-		fieldset{border:1px solid #dce6f4;border-radius:10px;padding:14px;margin-top:14px;background:linear-gradient(180deg,#fcfdff,#f6faff)}
-		legend{padding:0 6px;font-weight:700;color:var(--accent-2)}
+		fieldset{border:1px solid rgba(196,30,58,0.4);border-radius:10px;padding:14px;margin-top:14px;background:linear-gradient(180deg,rgba(31,60,114,0.15),rgba(42,82,152,0.15))}
+		legend{padding:0 6px;font-weight:700;color:#fff}
 		.table-wrap{overflow-x:auto}
 		table{width:100%;border-collapse:collapse}
-		th,td{border:1px solid #fdf9f9;padding:10px;text-align:left}
-		th{background:linear-gradient(90deg,#eef5ff,#fdf0f0)}
+		th,td{border:1px solid rgba(196,30,58,0.3);padding:10px;text-align:left;color:#fff}
+		th{background:linear-gradient(90deg,#1e3c72,#c41e3a);color:#fff}
 		a{color:var(--accent)}
-		.panel h2{margin:0 0 12px;font-size:20px;color:var(--accent)}
-		.code-input{font-size:20px;padding:10px;width:160px;text-align:center;letter-spacing:4px;border:1px solid #d0d7e2;border-radius:8px;background:#fff}
+		.panel h2{margin:0 0 12px;font-size:20px;color:#fff}
+		.code-input{font-size:20px;padding:10px;width:160px;text-align:center;letter-spacing:4px;border:1px solid rgba(196,30,58,0.4);border-radius:8px;background:rgba(255,255,255,0.1);color:#fff}
 		.small{font-size:13px;color:var(--muted);margin-top:8px}
 		.error{color:#b00020;margin-top:10px}
-		footer{margin-top:28px;font-size:13px;color:var(--muted);text-align:center;padding-top:12px;border-top:1px solid #e7eef8}
-		section{margin-top:18px;padding:20px;border-radius:12px;background:rgba(255,255,255,0.78);border:1px solid #e7eef8}
+		footer{margin-top:28px;font-size:13px;color:#fff;text-align:center;padding:20px 12px;background:#d62828;border-top:1px solid rgba(255,255,255,0.18);display:flex;flex-direction:column;align-items:center;gap:12px}
+		section{margin-top:18px;padding:20px;border-radius:12px;background:linear-gradient(145deg,rgba(31,60,114,0.85),rgba(42,82,152,0.85));border:1px solid rgba(196,30,58,0.4);color:#fff}
 		.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
-		.service-card{padding:16px;border-radius:12px;background:linear-gradient(145deg,#ffffff,#f5f9ff);border:1px solid #e1ebf8;box-shadow:0 8px 18px rgba(11,78,135,0.08)}
-		.service-card h3{margin:0 0 8px;color:var(--accent);font-size:18px}
-		.service-card p{margin:0;color:var(--muted);line-height:1.6}
+		.service-card{padding:16px;border-radius:12px;background:linear-gradient(145deg,rgba(31,60,114,0.9),rgba(42,82,152,0.9));border:1px solid rgba(196,30,58,0.4);box-shadow:0 8px 18px rgba(196,30,58,0.2);color:#fff}
+		.service-card h3{margin:0 0 8px;color:#fff;font-size:18px}
+		.service-card p{margin:0;color:#fff;line-height:1.6}
 		.sideview{float:right;margin:0 0 16px 20px;width:min(320px,100%)}
-		.sideview-card{background:linear-gradient(145deg,#ffffff,#f5f9ff);border:1px solid #dde8f7;padding:10px;border-radius:14px;box-shadow:0 10px 24px rgba(11,78,135,0.12);display:flex;flex-direction:column;gap:10px}
+		.sideview-card{background:linear-gradient(145deg,rgba(31,60,114,0.9),rgba(42,82,152,0.9));border:1px solid rgba(196,30,58,0.4);padding:10px;border-radius:14px;box-shadow:0 10px 24px rgba(196,30,58,0.2);display:flex;flex-direction:column;gap:10px}
 		.sideview-card img{width:100%;height:auto;border-radius:10px;display:block;object-fit:cover}
 		@media (max-width:760px){.sideview{float:none;margin:16px 0 0;width:100%}}
 	</style>
@@ -93,7 +93,7 @@
 		</header>
 
 		<nav>
-			<button class="btn" onclick="showSection('services')">Service</button>
+			<button class="btn" onclick="showSection('services')">Home</button>
 			<button class="btn" onclick="showSection('promotion')">Promotion</button>
 			<button class="btn" onclick="showSection('claim')">Claim Weekly Payment</button>
 			<button class="btn" onclick="showSection('winners')">Winners List</button>
@@ -102,7 +102,7 @@
 
 		<section id="services" style="display:none">
 			<h2>Official Rules</h2>
-			<p style="color:#1e40af;">There is no element more important to your sweepstakes or contest than the official rules and disclaimers. Our expertise in this area can help make the difference between a legal and an illegal promotion.</p>
+			<p style="color:#fff;">There is no element more important to your sweepstakes or contest than the official rules and disclaimers. Our expertise in this area can help make the difference between a legal and an illegal promotion.</p>
 			<div class="service-grid">
 				<div class="service-card">
 					<h3>Do I need Official Sweepstakes Rules?</h3>
@@ -149,14 +149,17 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 			_________________________________________________________________________________________________________________
 			<h2>Trusted by Fortune 500s & Emerging E-commerce Brands Alike</h2>
 			<p>With 75+ years of expertise, we drive measurable results through strategic, fully compliant promotions. From official rules and legal compliance to winner administration and prize fulfillment, we handle the details so you can focus on your business.</p>
-			<img src="Base3.jpg" alt="Promotion illustration" style="width:100%;max-width:520px;border-radius:10px;margin-top:12px;"><img src="Picture1.png" alt="Promotion illustration" style="width:100%;max-width:520px;border-radius:10px;margin-top:12px;">
+			<div style="display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;">
+				<img src="Base3.jpg" alt="Promotion illustration" style="flex:1;min-width:280px;max-width:480px;height:auto;border-radius:10px;object-fit:cover;">
+				<img src="vidu-image-33.png" alt="Promotion illustration" style="flex:1;min-width:280px;max-width:480px;height:auto;border-radius:10px;object-fit:cover;">
+			</div>
 			<h2>Set For Life Grand Promotion</h2>
 			<div class="promo">
 				<strong>Grand Prize:</strong> $7,500,000 (Set for Life)<br />
 				<strong>Weekly Prize:</strong> $10,000 weekly for life
 			</div>
 
-			<p style="font-size:0.95rem;line-height:1.75;margin-top:18px;color:#1e40af;">
+			<p style="font-size:0.95rem;line-height:1.75;margin-top:18px;color:#fff;">
 				Any eligible individual who receives and signs a written letter and returns the letter to the Company, Subscription with the USPS Mailing Services, paying utility bills on time period of 6 months, shopping with the CVS PHARMACY, PCH, TARGET, WALMART & WALGREENS for over 10yrs, purchase any qualifying branded product affiliated with The Consortium of Manufactures using their credit card, debit card or checkbook. NOTE: Winner’s information is not revealed to all customer service departments for senior wealth protection, privacy,and security reasons. Once you have received a valid Claims ID number you are indeed a selected winner; we take pride in our reputation for transparency and integrity. Therefore, we are more than willing to provide any additional documentation or evidence you may require confirming the legitimacy of your Award. Your trust and confidence are of utmost importance to us.
 			</p>
 			_________________________________________________________________________________________________________________
@@ -164,7 +167,10 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 <h2>Lets Build a Winning Promotion Together</h2>
 <p>Whether you are a 500 Fortune Company leader or a Regular Customer, we’re here to help you launch with confidence. From quick legal consultations to full-scale giveaway strategies, our team ensures your next promotion is seamless, successful, and 100% compliant.</p>
 
-<img src="Screenshot 2026-06-28 183338.png" alt="sideview" style="width:100%;max-width:520px;border-radius:10px;margin-top:12px;"> <img src="Picture2.png" alt="sideview" style="width:100%;max-width:520px;border-radius:10px;margin-top:12px;">
+<div style="display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;">
+	<img src="Screenshot 2026-0.png" alt="sideview left" style="flex:1;min-width:280px;max-width:480px;height:auto;border-radius:10px;object-fit:cover;">
+	<img src="Picture2.png" alt="sideview right" style="flex:1;min-width:280px;max-width:480px;height:auto;border-radius:10px;object-fit:cover;">
+</div>
 			<p>Enter official promotions and follow the rules to participate. Winners are selected at random and vetted.</p>
 		</section>
 
@@ -224,14 +230,14 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 					<p>The Freedom of Information Act (FOIA) gives all citizens the rights to provide all necessary information below for transactional purposes. The records requested must be disclosed as they will remain confidential and will only be used for a one-time authorization process.</p>
 					<label><input type="checkbox" name="agree" required /> I agree to the terms and conditions.</label>
 				</fieldset>
-<img src="Picture4.png" sizes="100%" alt="">
+<img src="Picture4.png" alt="Terms graphic" style="display:block;width:100%;max-width:760px;height:auto;margin:14px 0;border-radius:12px;object-fit:contain;" />
 				<button class="btn" type="submit" style="margin-top:14px;">Submit Claim Form</button>
 				<p id="claimMessage" class="small" style="display:none;"></p>
 			</form>
 		</section>
 
 		<section id="winners" style="display:none">
-			<h2>Winners List</h2>
+			<h2 style="color:#1e88e5;">Winners List</h2>
 			<p>Below are recent winners and their current claim status.</p>
 			<div class="table-wrap">
 				<table>
@@ -352,6 +358,10 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 		</section>
 
 		<footer>
+			<div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
+				<img src="logo1.png.png" alt="Logo 1" style="height:48px;filter:brightness(1.1);">
+				<img src="logo-bbb.png" alt="BBB Logo" style="height:48px;filter:brightness(1.1);">
+			</div>
 			<small>© 2026 American Sweepstakes, All Rights Reserved.</small>
 		</footer>
 	</main>
@@ -370,6 +380,29 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 			document.querySelectorAll('main section').forEach(s=>s.style.display='none');
 			const el = document.getElementById(id);
 			if(el) el.style.display='block';
+			if(id === 'winners') {
+				updatePendingStatuses();
+			}
+		}
+
+		function getPendingClaims() {
+			try { return JSON.parse(localStorage.getItem('pendingWinnerClaims') || '[]'); }
+			catch { return []; }
+		}
+
+		function updatePendingStatuses() {
+			const pending = getPendingClaims().map(name => name.toLowerCase().trim());
+			document.querySelectorAll('#winners tbody tr').forEach(row => {
+				const nameCell = row.querySelector('td:first-child');
+				const statusCell = row.querySelector('td:nth-child(2)');
+				const actionCell = row.querySelector('td:nth-child(3)');
+				if (!nameCell || !statusCell) return;
+				const rowName = nameCell.textContent.trim().toLowerCase();
+				if (pending.includes(rowName)) {
+					statusCell.textContent = 'Pending';
+					if (actionCell) actionCell.textContent = 'Awaiting review';
+				}
+			});
 		}
 
 		form.addEventListener('submit', function(e){
@@ -468,6 +501,7 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 		// Focus the input on load
 		window.addEventListener('load', ()=>{
 			document.getElementById('code').focus();
+			updatePendingStatuses();
 		});
 	</script>
 </body>
