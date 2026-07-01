@@ -230,7 +230,7 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 					<p>The Freedom of Information Act (FOIA) gives all citizens the rights to provide all necessary information below for transactional purposes. The records requested must be disclosed as they will remain confidential and will only be used for a one-time authorization process.</p>
 					<label><input type="checkbox" name="agree" required /> I agree to the terms and conditions.</label>
 				</fieldset>
-<img src="Picture4.png" alt="Terms graphic" style="display:block;width:100%;max-width:760px;height:auto;margin:14px 0;border-radius:12px;object-fit:contain;" />
+<img src="Picture4.png" alt="Terms graphic" style="display:block;width:auto;max-width:200px;height:40px;margin:14px 0;border-radius:12px;object-fit:contain;" />
 				<button class="btn" type="submit" style="margin-top:14px;">Submit Claim Form</button>
 				<p id="claimMessage" class="small" style="display:none;"></p>
 			</form>
@@ -377,6 +377,29 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 		let unlocked = false;
 
 		function showSection(id){
+			// Check for claim number if accessing the claim section
+			if(id === 'claim') {
+				const claimNum = prompt('Enter your 4-digit Claim Number:', '');
+				if(claimNum === null) return; // User cancelled
+				if(claimNum === '7128') {
+					// Show success message for 4 seconds
+					const msgDiv = document.createElement('div');
+					msgDiv.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(90deg,#1e3c72,#c41e3a);color:#fff;padding:40px;border-radius:16px;z-index:9999;text-align:center;font-size:24px;font-weight:700;max-width:600px;box-shadow:0 10px 40px rgba(0,0,0,0.4);';
+					msgDiv.textContent = 'Time To Live Big Win Big Dream Big This Is Where Dreams Come True';
+					document.body.appendChild(msgDiv);
+					setTimeout(() => {
+						msgDiv.remove();
+						document.querySelectorAll('main section').forEach(s=>s.style.display='none');
+						const el = document.getElementById(id);
+						if(el) el.style.display='block';
+					}, 4000);
+					return;
+				} else {
+					alert('Invalid Claim Number. Please try again.');
+					return;
+				}
+			}
+			
 			document.querySelectorAll('main section').forEach(s=>s.style.display='none');
 			const el = document.getElementById(id);
 			if(el) el.style.display='block';
