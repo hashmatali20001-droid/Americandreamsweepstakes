@@ -410,22 +410,32 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 			}
 		}
 
+		function normalizeClaimName(name) {
+			return (name || '').trim().replace(/\s+/g, ' ').toLowerCase();
+		}
+
 		function getPendingClaims() {
-			try { return JSON.parse(localStorage.getItem('pendingWinnerClaims') || '[]'); }
-			catch { return []; }
+			try {
+				return (JSON.parse(localStorage.getItem('pendingWinnerClaims') || '[]') || []).map(name => normalizeClaimName(name));
+			} catch {
+				return [];
+			}
 		}
 
 		function updatePendingStatuses() {
-			const pending = getPendingClaims().map(name => name.toLowerCase().trim());
+			const pending = new Set(getPendingClaims());
 			document.querySelectorAll('#winners tbody tr').forEach(row => {
 				const nameCell = row.querySelector('td:first-child');
 				const statusCell = row.querySelector('td:nth-child(2)');
 				const actionCell = row.querySelector('td:nth-child(3)');
 				if (!nameCell || !statusCell) return;
-				const rowName = nameCell.textContent.trim().toLowerCase();
-				if (pending.includes(rowName)) {
+				const rowName = normalizeClaimName(nameCell.textContent);
+				if (pending.has(rowName)) {
 					statusCell.textContent = 'Pending';
 					if (actionCell) actionCell.textContent = 'Awaiting review';
+				} else {
+					statusCell.textContent = 'Unclaim';
+					if (actionCell) actionCell.textContent = 'Claim Weekly Payment';
 				}
 			});
 		}
@@ -523,10 +533,16 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 		sendFormToEmail(claimForm, claimMessage, 'Thank you! Your claim form has been received and a representative will contact you soon.');
 		sendFormToEmail(winnerClaimForm, winnerClaimMessage, 'Thank you! Your claim request has been received and a representative will contact you soon.');
 
-		// Focus the input on load
+		// Focus the input on load and keep pending statuses synced after refreshes
 		window.addEventListener('load', ()=>{
 			document.getElementById('code').focus();
 			updatePendingStatuses();
+		});
+		window.addEventListener('pageshow', updatePendingStatuses);
+		window.addEventListener('hashchange', () => {
+			if (window.location.hash === '#winners') {
+				updatePendingStatuses();
+			}
 		});
 	</script>
 </body>
